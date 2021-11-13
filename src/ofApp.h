@@ -23,6 +23,8 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+		int levels = 10;
+		int levelMode1 = 4;
 	private:
 		char mode = '1';
 		bool mode1state = true;

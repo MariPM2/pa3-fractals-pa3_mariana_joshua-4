@@ -32,11 +32,11 @@ void ofApp::draw()
     //     drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
     // }
     if(mode1state == true){
-        drawMode1(ofGetWidth()/2, ofGetHeight()/2, 4);
+        drawMode1(ofGetWidth()/2, ofGetHeight()/2, levelMode1);
     }if(mode2state == true){
-        drawMode2(200, 10, ofGetWidth()/2, ofGetHeight()-50, 30);
+        drawMode2(200, levels, ofGetWidth()/2, ofGetHeight()-50, 30);
     }if(mode3state == true) {
-        drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
+        drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, levels);
 
     }
 }
@@ -120,6 +120,14 @@ void ofApp::keyPressed(int key)
             break;
         case '4':
             mode4state = !mode4state;
+            break;
+        case '=':
+            levels++;
+            levelMode1++;
+            break;
+        case '-':
+            levels--;
+            levelMode1--;
             break;
     }
 }
