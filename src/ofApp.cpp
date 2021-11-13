@@ -88,6 +88,7 @@ void ofApp::drawMode3(float x, float y, float size, int n)
 
     drawMode3(x, y, size / 2, n - 1);
     drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
+    drawMode3((a.x + c.x) / 2, (a.y + c.y) / 2, size / 2, n - 1);
 }
 
 //--------------------------------------------------------------
