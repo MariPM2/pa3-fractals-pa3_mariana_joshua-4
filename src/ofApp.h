@@ -25,4 +25,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 	private:
 		char mode = '1';
+		bool mode1state = true;
+		bool mode2state = false;
+		bool mode3state = false;
+		bool mode4state = false;
 };

@@ -19,17 +19,25 @@ void ofApp::draw()
     /* The update method is called muliple times per second
     It's in charge of drawing all figures and text on screen */
     ofNoFill();
-    if (mode == '1')
-    {
-        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, 4);
-    }
-    else if (mode == '2')
-    {
-        drawMode2(200, 10, ofGetWidth() / 2, ofGetHeight() - 50, 30);
-    }
-    else if (mode == '3')
-    {
+    // if (mode == '1')
+    // {
+    //     drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, 4);
+    // }
+    // else if (mode == '2')
+    // {
+    //     drawMode2(200, 10, ofGetWidth() / 2, ofGetHeight() - 50, 30);
+    // }
+    // else if (mode == '3')
+    // {
+    //     drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
+    // }
+    if(mode1state == true){
+        drawMode1(ofGetWidth()/2, ofGetHeight()/2, 4);
+    }if(mode2state == true){
+        drawMode2(200, 10, ofGetWidth()/2, ofGetHeight()-50, 30);
+    }if(mode3state == true) {
         drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
+
     }
 }
 void ofApp::drawMode1(int x, int y, int n)
@@ -88,18 +96,30 @@ void ofApp::keyPressed(int key)
     // This method is called automatically when any key is pressed
     switch (key)
     {
+    // case '1':
+    //     mode = '1';
+    //     break;
+    // case '2':
+    //     mode = '2';
+    //     break;
+    // case '3':
+    //     mode = '3';
+    //     break;
+    // case '4':
+    //     mode = '4';
+    //     break;
     case '1':
-        mode = '1';
-        break;
-    case '2':
-        mode = '2';
-        break;
-    case '3':
-        mode = '3';
-        break;
-    case '4':
-        mode = '4';
-        break;
+            mode1state = !mode1state;
+            break;
+        case '2':
+            mode2state = !mode2state;
+            break;
+        case '3':
+            mode3state = !mode3state;
+            break;
+        case '4':
+            mode4state = !mode4state;
+            break;
     }
 }
 
