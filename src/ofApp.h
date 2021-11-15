@@ -24,7 +24,7 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		int levels = 10;
-		int levelMode1 = 4;
+		vector<ofColor> colors;
 	private:
 		char mode = '1';
 		bool mode1state = true;

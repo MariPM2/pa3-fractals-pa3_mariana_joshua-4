@@ -3,6 +3,13 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+    colors.push_back(ofColor(255,0,0));
+    colors.push_back(ofColor(0,255,0));
+    colors.push_back(ofColor(0,0,255));
+    colors.push_back(ofColor(247,255,0));
+    colors.push_back(ofColor(255,137,0));
+    colors.push_back(ofColor(255,255,255));
+    colors.push_back(ofColor(180,0,216));
 }
 
 //--------------------------------------------------------------
@@ -32,7 +39,7 @@ void ofApp::draw()
     //     drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
     // }
     if(mode1state == true){
-        drawMode1(ofGetWidth()/2, ofGetHeight()/2, levelMode1);
+        drawMode1(ofGetWidth()/2, ofGetHeight()/2, levels-6);
     }if(mode2state == true){
         drawMode2(200, levels, ofGetWidth()/2, ofGetHeight()-50, 30);
     }if(mode3state == true) {
@@ -44,7 +51,8 @@ void ofApp::drawMode1(int x, int y, int n)
 {
     if (n != 0)
     {
-        ofDrawCircle(x, y, 100);
+        ofDrawRectangle(x,y,50,50);
+        // ofDrawCircle(x, y, 100);
         drawMode1(x + 100, y, n - 1);
         drawMode1(x - 100, y, n - 1);
         drawMode1(x, y + 100, n - 1);
@@ -123,11 +131,11 @@ void ofApp::keyPressed(int key)
             break;
         case '=':
             levels++;
-            levelMode1++;
+            ofSetColor(colors[rand() % colors.size()]);
             break;
         case '-':
             levels--;
-            levelMode1--;
+            ofSetColor(colors[rand() % colors.size()]);
             break;
     }
 }
