@@ -39,9 +39,13 @@ void ofApp::draw()
     //     drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
     // }
     if(mode1state == true){
-        drawMode1(ofGetWidth()/2, ofGetHeight()/2, levels-6);
+        drawMode1(ofGetWidth()/2, (ofGetHeight()/2) - 50, levels-6);
     }if(mode2state == true){
         drawMode2(200, levels, ofGetWidth()/2, ofGetHeight()-50, 30);
+        drawMode2(110, levels, (ofGetWidth()/2) - 340, ofGetHeight()-50, 50);
+        drawMode2(110, levels, (ofGetWidth()/2) + 340, ofGetHeight()-50, 50);
+        drawMode2(50, levels, (ofGetWidth()/2) - 150, ofGetHeight()-50, 50);
+        drawMode2(50, levels, (ofGetWidth()/2) + 150, ofGetHeight()-50, 50);
     }if(mode3state == true) {
         drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, levels);
 
