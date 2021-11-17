@@ -32,13 +32,13 @@ class ofApp : public ofBaseApp{
 		// vector<ofColor> colors;
 	private:
 		char mode = '1';
-		bool mode1state = true;
-		bool mode2state = false;
-		bool mode3state = false;
-		bool mode4state = false;
+		// bool mode1state = true;
+		// bool mode2state = false;
+		// bool mode3state = false;
+		// bool mode4state = false;
 
 		vector<FractalMode*> fractals;
-
+		
 		DrawMode1* drawMode1;
 		DrawMode2* drawMode2;
 		DrawMode3* drawMode3;
