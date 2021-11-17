@@ -3,13 +3,15 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-    colors.push_back(ofColor(255,0,0));
-    colors.push_back(ofColor(0,255,0));
-    colors.push_back(ofColor(0,0,255));
-    colors.push_back(ofColor(247,255,0));
-    colors.push_back(ofColor(255,137,0));
-    colors.push_back(ofColor(255,255,255));
-    colors.push_back(ofColor(180,0,216));
+    drawMode1 = new DrawMode1();
+    drawMode2 = new DrawMode2();
+    drawMode3 = new DrawMode3();
+    
+
+    fractals.push_back(drawMode1);
+    fractals.push_back(drawMode2);
+    fractals.push_back(drawMode3);
+
 }
 
 //--------------------------------------------------------------
@@ -39,69 +41,66 @@ void ofApp::draw()
     //     drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
     // }
     if(mode1state == true){
-        drawMode1(ofGetWidth()/2, (ofGetHeight()/2) - 50, levels-6);
+        fractals[0]->draw();
     }if(mode2state == true){
-        drawMode2(200, levels, ofGetWidth()/2, ofGetHeight()-50, 30);
-        drawMode2(110, levels, (ofGetWidth()/2) - 340, ofGetHeight()-50, 50);
-        drawMode2(110, levels, (ofGetWidth()/2) + 340, ofGetHeight()-50, 50);
-        drawMode2(50, levels, (ofGetWidth()/2) - 150, ofGetHeight()-50, 50);
-        drawMode2(50, levels, (ofGetWidth()/2) + 150, ofGetHeight()-50, 50);
+        fractals[1]->draw();
     }if(mode3state == true) {
-        drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, levels);
+        fractals[2]->draw();
+        // drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, levels);
 
     }
 }
-void ofApp::drawMode1(int x, int y, int n)
-{
-    if (n != 0)
-    {
-        ofDrawRectangle(x,y,50,50);
-        // ofDrawCircle(x, y, 100);
-        drawMode1(x + 100, y, n - 1);
-        drawMode1(x - 100, y, n - 1);
-        drawMode1(x, y + 100, n - 1);
-        drawMode1(x, y - 100, n - 1);
-    }
-}
-void ofApp::drawMode2(int length, int n, int x, int y, int d)
-{
-    if (n != 0)
-    {
-        int middleX = x;
-        int middleY = y - length;
-        int leftBranchX = x - length * cos(PI / 180 * d);
-        int leftBranchY = middleY - length * sin(PI / 180 * d);
-        int rightBranchX = x + length * cos(PI / 180 * d);
-        int rightBranchY = middleY - length * sin(PI / 180 * d);
+// void ofApp::drawMode1(int x, int y, int n)
+// {
+//     if (n != 0)
+//     {
+//         ofDrawRectangle(x,y,50,50);
+//         // ofDrawCircle(x, y, 100);
+//         drawMode1(x + 100, y, n - 1);
+//         drawMode1(x - 100, y, n - 1);
+//         drawMode1(x, y + 100, n - 1);
+//         drawMode1(x, y - 100, n - 1);
+//     }
+// }
+// void ofApp::drawMode2(int length, int n, int x, int y, int d)
+// {
+//     if (n != 0)
+//     {
+//         int middleX = x;
+//         int middleY = y - length;
+//         int leftBranchX = x - length * cos(PI / 180 * d);
+//         int leftBranchY = middleY - length * sin(PI / 180 * d);
+//         int rightBranchX = x + length * cos(PI / 180 * d);
+//         int rightBranchY = middleY - length * sin(PI / 180 * d);
 
-        ofDrawLine(x, y, x, y - length);
-        ofDrawLine(x, y - length, x, y - length*2);
-        ofDrawLine(x, y - length, rightBranchX, rightBranchY);
-        ofDrawLine(x, y - length, leftBranchX, leftBranchY);
+//         ofDrawLine(x, y, x, y - length);
+//         ofDrawLine(x, y - length, x, y - length*2);
+//         ofDrawLine(x, y - length, rightBranchX, rightBranchY);
+//         ofDrawLine(x, y - length, leftBranchX, leftBranchY);
 
-        drawMode2(length / 2, n - 1, rightBranchX, rightBranchY, 30);
-        drawMode2(length / 2, n - 1, middleX, middleY, 30);
-        drawMode2(length / 2, n - 1, leftBranchX, leftBranchY, 30);
-    }
-}
+//         drawMode2(length / 2, n - 1, rightBranchX, rightBranchY, 30);
+//         drawMode2(length / 2, n - 1, middleX, middleY, 30);
+//         drawMode2(length / 2, n - 1, leftBranchX, leftBranchY, 30);
+//     }
+// }
 
-void ofApp::drawMode3(float x, float y, float size, int n)
-{
-    if (n == 0)
-    {
-        return;
-    }
+// void ofApp::drawMode3(float x, float y, float size, int n)
+// {
+//     if (n == 0)
+//     {
+//         return;
+//     }
 
-    ofPoint a(x, y);
-    ofPoint b(x + size, y);
-    ofPoint c(x + size / 2, y + ((sqrt(3) * size) / 2));
+//     ofPoint a(x, y);
+//     ofPoint b(x + size, y);
+//     ofPoint c(x + size / 2, y + ((sqrt(3) * size) / 2));
 
-    ofDrawTriangle(a, b, c);
+//     ofDrawTriangle(a, b, c);
 
-    drawMode3(x, y, size / 2, n - 1);
-    drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
-    drawMode3((a.x + c.x) / 2, (a.y + c.y) / 2, size / 2, n - 1);
-}
+//     drawMode3(x, y, size / 2, n - 1);
+//     drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
+//     drawMode3((a.x + c.x) / 2, (a.y + c.y) / 2, size / 2, n - 1);
+// }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
@@ -134,12 +133,19 @@ void ofApp::keyPressed(int key)
             mode4state = !mode4state;
             break;
         case '=':
-            levels++;
-            ofSetColor(colors[rand() % colors.size()]);
+            // lvl->getLevels()++;
+            // levels++;
+            drawMode1->addLevels();
+            drawMode2->addLevels();
+            drawMode3->addLevels();
+            // ofSetColor(colors[rand() % colors.size()]);
             break;
         case '-':
-            levels--;
-            ofSetColor(colors[rand() % colors.size()]);
+            // levels--;
+            drawMode1->substractLevels();
+            drawMode2->substractLevels();
+            drawMode3->substractLevels();
+            // ofSetColor(colors[rand() % colors.size()]);
             break;
     }
 }
