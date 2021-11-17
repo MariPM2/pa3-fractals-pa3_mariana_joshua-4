@@ -8,8 +8,8 @@ class FractalMode{
     FractalMode();
 
     virtual void draw()=0;
-    bool getActivate();
-    void setActivate();
+    virtual bool getActivate() = 0;
+    virtual void setActivate() = 0;
     int getLevels(){ return levels;}
     void addLevels(){ levels++;}
     void substractLevels(){ levels--;}

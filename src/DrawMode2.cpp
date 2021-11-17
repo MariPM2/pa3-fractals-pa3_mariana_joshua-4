@@ -31,5 +31,5 @@ void DrawMode2::drawHelper(int length, int n, int x, int y, int d){
         drawHelper(length / 2, n - 1, leftBranchX, leftBranchY, 30);
     }
 }
-// void DrawMode2::getActivate(){}
-// void DrawMode2::setActivate(){}
+bool DrawMode2::getActivate(){return activate;}
+void DrawMode2::setActivate(){activate = !activate;}

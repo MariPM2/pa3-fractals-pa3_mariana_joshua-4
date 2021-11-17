@@ -25,5 +25,5 @@ void DrawMode3::drawHelper(float x, float y, float size, int n){
     drawHelper((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
     drawHelper((a.x + c.x) / 2, (a.y + c.y) / 2, size / 2, n - 1);
 }
-// void DrawMode3::getActivate(){}
-// void DrawMode3::setActivate(){
+bool DrawMode3::getActivate(){return activate;}
+void DrawMode3::setActivate(){activate = !activate;}

@@ -22,5 +22,5 @@ void DrawMode4::drawHelper(int x, int y, int n){
         // drawHelper(x+50, y - 100, n - 1);
     }
 }
-// void DrawMode1::getActivate(){}
-// void DrawMode1::setActivate(){}
+bool DrawMode4::getActivate(){return activate;}
+void DrawMode4::setActivate(){activate = !activate;}

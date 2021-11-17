@@ -44,13 +44,22 @@ void ofApp::draw()
     // {
     //     drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, 10);
     // }
-    if(mode1state == true){
+    // if(mode1state == true){
+    //     fractals[0]->draw();
+    // }if(mode2state == true){
+    //     fractals[1]->draw();
+    // }if(mode3state == true) {
+    //     fractals[2]->draw();
+    // }if(mode4state == true){
+    //     fractals[3]->draw();
+    // }
+    if(drawMode1->getActivate() == true){
         fractals[0]->draw();
-    }if(mode2state == true){
+    }if(drawMode2->getActivate() == true){
         fractals[1]->draw();
-    }if(mode3state == true) {
+    }if(drawMode3->getActivate() == true) {
         fractals[2]->draw();
-    }if(mode4state == true){
+    }if(drawMode4->getActivate() == true){
         fractals[3]->draw();
     }
 }
@@ -125,16 +134,20 @@ void ofApp::keyPressed(int key)
     //     mode = '4';
     //     break;
     case '1':
-            mode1state = !mode1state;
+            // mode1state = !mode1state;
+            drawMode1->setActivate();
             break;
         case '2':
-            mode2state = !mode2state;
+            // mode2state = !mode2state;
+            drawMode2->setActivate();
             break;
         case '3':
-            mode3state = !mode3state;
+            // mode3state = !mode3state;
+            drawMode3->setActivate();
             break;
         case '4':
-            mode4state = !mode4state;
+            // mode4state = !mode4state;
+            drawMode4->setActivate();
             break;
         case '=':
             // lvl->getLevels()++;

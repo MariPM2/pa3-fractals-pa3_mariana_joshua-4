@@ -9,6 +9,10 @@ class DrawMode4: public FractalMode{
 
     void draw();
     void drawHelper(int x, int y, int n);
+    bool getActivate();
+    void setActivate();
     // void getActivate();
     // void setActivate();
+    private:
+        bool activate = false;
 };
