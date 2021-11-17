@@ -3,14 +3,18 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+    ofSetWindowTitle("PA3 - Fractals");
+
     drawMode1 = new DrawMode1();
     drawMode2 = new DrawMode2();
     drawMode3 = new DrawMode3();
+    drawMode4 = new DrawMode4();
     
 
     fractals.push_back(drawMode1);
     fractals.push_back(drawMode2);
     fractals.push_back(drawMode3);
+    fractals.push_back(drawMode4);
 
 }
 
@@ -46,8 +50,8 @@ void ofApp::draw()
         fractals[1]->draw();
     }if(mode3state == true) {
         fractals[2]->draw();
-        // drawMode3(ofGetWidth() / 3, 10, ofGetHeight() / 2, levels);
-
+    }if(mode4state == true){
+        fractals[3]->draw();
     }
 }
 // void ofApp::drawMode1(int x, int y, int n)
@@ -138,6 +142,7 @@ void ofApp::keyPressed(int key)
             drawMode1->addLevels();
             drawMode2->addLevels();
             drawMode3->addLevels();
+            drawMode4->addLevels();
             // ofSetColor(colors[rand() % colors.size()]);
             break;
         case '-':
@@ -145,6 +150,7 @@ void ofApp::keyPressed(int key)
             drawMode1->substractLevels();
             drawMode2->substractLevels();
             drawMode3->substractLevels();
+            drawMode4->substractLevels();
             // ofSetColor(colors[rand() % colors.size()]);
             break;
     }

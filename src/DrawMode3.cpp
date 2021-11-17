@@ -8,7 +8,8 @@ void DrawMode3::draw(){
 }
 
 void DrawMode3::drawHelper(float x, float y, float size, int n){
-    ofSetColor(colors[n]);
+    // ofSetColor(colors[n]);
+    
    if (n == 0)
     {
         return;
