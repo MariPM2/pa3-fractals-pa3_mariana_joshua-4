@@ -6,7 +6,7 @@
 #include "DrawMode2.h"
 #include "DrawMode3.h"
 #include "DrawMode4.h"
-//#include "FractalMode.h"
+#include "Animation.h"
 
 class ofApp : public ofBaseApp{
 	public:
@@ -43,4 +43,5 @@ class ofApp : public ofBaseApp{
 		DrawMode2* drawMode2;
 		DrawMode3* drawMode3;
 		DrawMode4* drawMode4;
+		Animation* animation;
 };

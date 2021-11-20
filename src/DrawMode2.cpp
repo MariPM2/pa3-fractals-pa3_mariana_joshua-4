@@ -1,14 +1,14 @@
 #include "DrawMode2.h"
 
 DrawMode2::DrawMode2(){
-
+    levels=10;
 }
 void DrawMode2::draw(){
-    drawHelper(200, getLevels(), ofGetWidth()/2, ofGetHeight()-50, 30);
-    drawHelper(110, getLevels(), (ofGetWidth()/2) - 340, ofGetHeight()-50, 50);
-    drawHelper(110, getLevels(), (ofGetWidth()/2) + 340, ofGetHeight()-50, 50);
-    drawHelper(50, getLevels(), (ofGetWidth()/2) - 150, ofGetHeight()-50, 50);
-    drawHelper(50, getLevels(), (ofGetWidth()/2) + 150, ofGetHeight()-50, 50);
+    drawHelper(200, levels, ofGetWidth()/2, ofGetHeight()-50, 30);
+    drawHelper(110, levels, (ofGetWidth()/2) - 340, ofGetHeight()-50, 50);
+    drawHelper(110, levels, (ofGetWidth()/2) + 340, ofGetHeight()-50, 50);
+    drawHelper(50, levels, (ofGetWidth()/2) - 150, ofGetHeight()-50, 50);
+    drawHelper(50, levels, (ofGetWidth()/2) + 150, ofGetHeight()-50, 50);
 }
 void DrawMode2::drawHelper(int length, int n, int x, int y, int d){
     ofSetColor(colors[n]);

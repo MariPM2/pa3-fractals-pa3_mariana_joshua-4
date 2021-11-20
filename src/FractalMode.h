@@ -11,12 +11,11 @@ class FractalMode{
     virtual bool getActivate() = 0;
     virtual void setActivate() = 0;
     int getLevels(){ return levels;}
-    void addLevels(){ levels++;}
-    void substractLevels(){ levels--;}
+    void setLevels(int L){levels = L;}
+    void addLevels(){levels++;}
+    void substractLevels(){levels--;}
 
     protected:
-    int levels = 10;
+    int levels;
     vector<ofColor> colors;
-    
-
 };

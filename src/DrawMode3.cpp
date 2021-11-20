@@ -1,10 +1,10 @@
 #include "DrawMode3.h"
 
 DrawMode3::DrawMode3(){
-
+    levels=10;
 }
 void DrawMode3::draw(){
-    drawHelper(ofGetWidth() / 3, 10, ofGetHeight() / 2, getLevels());
+    drawHelper(ofGetWidth() / 3, 10, ofGetHeight() / 2, levels);
 }
 
 void DrawMode3::drawHelper(float x, float y, float size, int n){

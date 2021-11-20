@@ -9,6 +9,7 @@ void ofApp::setup()
     drawMode2 = new DrawMode2();
     drawMode3 = new DrawMode3();
     drawMode4 = new DrawMode4();
+    animation = new Animation({30,30,30,30},{drawMode1,drawMode2,drawMode3,drawMode4});
     
 
     fractals.push_back(drawMode1);
@@ -24,12 +25,14 @@ void ofApp::update()
     /* The update method is called muliple times per second
     It's in charge of updating variables and the logic of our app */
     ofSetBackgroundColor(0, 0, 0);
+
+    animation->tick();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-    /* The update method is called muliple times per second
+    /* The draw method is called muliple times per second
     It's in charge of drawing all figures and text on screen */
     ofNoFill();
     // if (mode == '1')
@@ -62,6 +65,7 @@ void ofApp::draw()
     }if(drawMode4->getActivate() == true){
         fractals[3]->draw();
     }
+    animation->draw();
 }
 // void ofApp::drawMode1(int x, int y, int n)
 // {
@@ -119,6 +123,7 @@ void ofApp::draw()
 void ofApp::keyPressed(int key)
 {
     // This method is called automatically when any key is pressed
+    if(!animation->isAnimating()){
     switch (key)
     {
     // case '1':
@@ -150,22 +155,45 @@ void ofApp::keyPressed(int key)
             drawMode4->setActivate();
             break;
         case '=':
-            // lvl->getLevels()++;
             // levels++;
-            drawMode1->addLevels();
-            drawMode2->addLevels();
-            drawMode3->addLevels();
-            drawMode4->addLevels();
+            for(FractalMode* f: fractals){
+                if(f->getLevels()<10){
+                    f->addLevels();
+                }
+            }
+            // drawMode1->addLevels();
+            // drawMode2->addLevels();
+            // drawMode3->addLevels();
+            // drawMode4->addLevels();
             // ofSetColor(colors[rand() % colors.size()]);
             break;
         case '-':
             // levels--;
-            drawMode1->substractLevels();
-            drawMode2->substractLevels();
-            drawMode3->substractLevels();
-            drawMode4->substractLevels();
+            for(FractalMode* f: fractals){
+                if(f->getLevels()>0){
+                    f->substractLevels();
+                }
+            }
+            // drawMode1->substractLevels();
+            // drawMode2->substractLevels();
+            // drawMode3->substractLevels();
+            // drawMode4->substractLevels();
             // ofSetColor(colors[rand() % colors.size()]);
             break;
+
+    }
+    }
+    switch (key)
+    {
+    case ' ':
+        animation->setIsAnimating(true);
+        for(FractalMode* f: animation->getFractals()){
+            f->setLevels(0);
+        }
+        break;
+    case 'c':
+        animation->setIsAnimating(false);
+        break;
     }
 }
 
