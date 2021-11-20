@@ -2,7 +2,6 @@
 #include<cmath>
 
 #include "FractalMode.h"
-
 class DrawMode2: public FractalMode{
     public:
     DrawMode2();
@@ -11,8 +10,6 @@ class DrawMode2: public FractalMode{
     void setActivate();
 
     void draw();
-    // void getActivate();
-    // void setActivate();
     private:
         bool activate = false;
 };

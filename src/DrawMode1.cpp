@@ -12,7 +12,6 @@ void DrawMode1::drawHelper(int x, int y, int n){
     if (n != 0)
     {
         ofDrawRectangle(x,y,50,50);
-        // ofDrawCircle(x, y, 100);
         drawHelper(x + 100, y, n - 1);
         drawHelper(x - 100, y, n - 1);
         drawHelper(x, y + 100, n - 1);
